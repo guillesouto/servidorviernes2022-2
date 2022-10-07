@@ -25,10 +25,11 @@ export class ControladorHabitacion{
     }
 
     buscarHabitacionPorId(request,response){
+        let id=request.params.idHabitacion //recibo id de la peticion
         try{
 
             response.status(200).json({
-                "mensaje":"exito en la consulta",
+                "mensaje":"exito en la consulta "+id,
                 "datos":"AQUI VAN LOS DATOS DE la habitacion buscada por id",
             })
 
@@ -43,13 +44,15 @@ export class ControladorHabitacion{
     }
 
     registrarHabitacion(request,response){
+
+        let datosHabitacion=request.body
+        
         try{
 
             response.status(200).json({
                 "mensaje":"exito registrando habitacion",
                 "datos":null
             })
-
         }catch(error){
 
             response.status(400).json({
@@ -61,11 +64,15 @@ export class ControladorHabitacion{
     }
 
     editarHabitacion(request,response){
+        let id = request.params.idHabitacion
+        let datosHabitacion = request.body
+        console.log(id,datosHabitacion)
+
         try{
 
             response.status(200).json({
-                "mensaje":"exito editando",
-                "datos":null,
+                "mensaje":"exito editando"+id,
+                "datos":datosHabitacion,
             })
 
         }catch(error){
